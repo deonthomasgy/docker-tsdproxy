@@ -38,7 +38,14 @@
     "go_vet": "passed",
     "container_smoke": "passed: 10 HTTP checks, image healthcheck and graceful shutdown",
     "published_manifest_matches_tested_image": true,
-    "real_tailnet_e2e": "not run; requires isolated test tailnet",
-    "production_deployed": false
+    "real_tailnet_e2e": "Manual single-host canary passed HTTP and certificate-verified HTTPS from a separate Tailscale client; upstream tagged e2e suite not run",
+    "production_deployed": true
+  },
+  "canary": {
+    "host": "orion-fs-host-1",
+    "verified_at": "2026-10-25T18:19:11.744990+00:00",
+    "status": "healthy",
+    "scope": "one host only",
+    "report": "security/canary-orion-2026-10-25.json"
   }
 }

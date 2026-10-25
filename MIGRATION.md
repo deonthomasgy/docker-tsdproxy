@@ -1,12 +1,12 @@
-# Proposed migration — not deployed
+# Migration and verified canary
 
-## Observed production deployment (2026-10-25)
+## Deployment before the canary (2026-10-25)
 
 Host: `orion-fs-host-1`. Compose project `tsdproxy`, service
 `tailscale-docker-proxy`, container `tsdproxy-tailscale-docker-proxy-1`.
 Image declaration: `/home/thomas/tsdproxy/docker-compose.yml:9`.
 
-Current image is `almeidapaulopt/tsdproxy:latest`, resolving to the old 1.4.7
+The pre-upgrade image was `almeidapaulopt/tsdproxy:latest`, resolving to the old 1.4.7
 image ID `sha256:d26348ccb57ed41aa5fe37b6b1e2cb468c08c08ce02e18ba4720e74214020bc3`.
 Rollback image: `almeidapaulopt/tsdproxy@sha256:6c04c1a2061fbc1a3939a1c880999c29d667bd91277c1320920c4bb259895395`.
 The Compose file SHA256 observed was
@@ -15,7 +15,7 @@ Recheck for drift before applying any changes.
 
 The Docker socket is mounted at `/var/run/docker.sock`; named volume
 `tsdproxy_datadir` is mounted at `/data`. No ports are published. Configuration
-currently lives in the container's writable `/config/tsdproxy.yaml`, not a
+previously lived in the container's writable `/config/tsdproxy.yaml`, not a
 persistent mount. It contains a secret and must be backed up privately.
 Legacy environment names are `DOCKER_HOST`, `TSDPROXY_AUTHKEY`, and
 `TSDPROXY_HOSTNAME`. These remain supported by beta.4's config generator.
@@ -51,7 +51,7 @@ notes against the tagged source.
 - Automatic icon download requires GitHub access. Set `icons.download: false`
   if this is unwanted, and preseed icons if needed.
 
-## Deployment procedure after owner authorization
+## Procedure for additional hosts after owner authorization
 
 1. Recheck the Compose file, running image, provider configuration and labels.
    Confirm the intended administrator's Tailscale identity and retain the
@@ -80,3 +80,37 @@ notes against the tagged source.
 Real tailnet registration, certificate issuance and application routing must
 be validated during the authorized canary; local tests use no production
 credentials or Tailscale state.
+
+## Completed canary: orion-fs-host-1
+
+The owner authorized a one-host rollout on 2026-10-25. This host now runs the
+immutable image in `release.json`. No other host was deployed. The full
+sanitized record is [security/canary-orion-2026-10-25.json](security/canary-orion-2026-10-25.json).
+
+- Private rollback backup: `/home/thomas/tsdproxy-security-backups/20261025T181353Z`.
+  Contains the original Compose file, original private configuration, container
+  inspection, and a stopped-volume `data.tar` with SHA256 checksum.
+- Persistent configuration: `/home/thomas/tsdproxy/config/tsdproxy.yaml`, mounted
+  read-only at `/config`. The generated administrator API key remains only in
+  `/home/thomas/tsdproxy/config/api-key` (private file). Administrator access is
+  restricted to the host owner's Tailscale user ID or that API key.
+- `adminAllowLocalhost: false`, Funnel disabled, TLS verification enforced,
+  existing provider names and data volume retained. No ports published.
+- The image passed GitHub CI before canary verification completed.
+- There were no enabled application routes on this host. Verification used a
+  disposable Nginx backend and an ephemeral Tailscale node. Docker discovery,
+  HTTP routing and certificate-verified HTTPS routing passed from a separate
+  Tailscale workstation, with exact response matching and no hostname suffix.
+- This host's existing default resolves explicitly declared ports through its
+  target hostname. The temporary backend used `tsdproxy.autodetect=true` to
+  select its private Docker IP; no host-wide routing defaults were changed.
+- The temporary backend, proxy route, ephemeral state and tailnet node were
+  removed. The proxy was then recreated through Compose and verified healthy
+  with authenticated API/dashboard access and anonymous 403 responses.
+- All 14 pre-existing state files matched the backup after recreation. Other
+  running containers retained their IDs. No unexpected restarts occurred.
+
+This verifies a real synthetic route, not migration of active application
+routes: none were enabled on this host. Additional hosts still need their own
+configuration and route inventory before rollout. The upstream tagged e2e
+suite for all provider modes was not run against the production tailnet.

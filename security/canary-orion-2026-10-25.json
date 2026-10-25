@@ -1,0 +1,80 @@
+{
+  "host": "orion-fs-host-1",
+  "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r1@sha256:f841dec2e77b51f70969d59fdcf80c4efb85254a6b6007b223e03631c8a174c4",
+  "image_id": "sha256:f908bfef102160be0ca7171fb4bc03a5bd9e4bec30f05e27a1b407bd0ebd9dab",
+  "backup": "/home/thomas/tsdproxy-security-backups/20261025T181353Z",
+  "config_persisted": true,
+  "checks": [
+    {
+      "path": "/health/ready/",
+      "authenticated": false,
+      "status": 200
+    },
+    {
+      "path": "/",
+      "authenticated": false,
+      "status": 403
+    },
+    {
+      "path": "/api/version",
+      "authenticated": false,
+      "status": 403
+    },
+    {
+      "path": "/api/v1/proxies",
+      "authenticated": false,
+      "status": 403
+    },
+    {
+      "path": "/api/version",
+      "authenticated": true,
+      "status": 200
+    },
+    {
+      "path": "/api/v1/proxies",
+      "authenticated": true,
+      "status": 200
+    },
+    {
+      "path": "/",
+      "authenticated": true,
+      "status": 200
+    }
+  ],
+  "baseline_routes": 0,
+  "other_running_containers_unchanged": true,
+  "routing_verification": "HTTP and HTTPS 200 with matching nonce from separate Tailscale workstation; TLS verification enabled; no Funnel",
+  "verified_at": "2026-10-25T18:19:11.744990+00:00",
+  "docker_health": "healthy",
+  "restart_count": 0,
+  "container_recreation_verified": true,
+  "authentication_after_recreation": true,
+  "temporary_route_removed": true,
+  "temporary_state_removed": true,
+  "original_state_files_unchanged": 14,
+  "published_ports": [],
+  "routing_evidence": {
+    "tested_at": "2026-10-25T18:17:28.718977+00:00",
+    "client": "separate Tailscale workstation",
+    "checks": [
+      {
+        "scheme": "http",
+        "status": 200,
+        "response_matches_canary": true,
+        "tls_certificate_verified": false
+      },
+      {
+        "scheme": "https",
+        "status": 200,
+        "response_matches_canary": true,
+        "tls_certificate_verified": true
+      }
+    ],
+    "exact_hostname_without_duplicate_suffix": true,
+    "peer_count": 1,
+    "response_sha256": "3f27ecf243de61ab6fe50d9dafb324290d7722e406bbb6a29fc2950988b145dd"
+  },
+  "temporary_tailnet_node_removed": true,
+  "image_ci": "https://github.com/deonthomasgy/docker-tsdproxy/actions/runs/40219643987",
+  "image_ci_conclusion": "success"
+}
