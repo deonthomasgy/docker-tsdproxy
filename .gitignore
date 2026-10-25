@@ -61,3 +61,5 @@ web/scripts/.download-cache.json
 
 .cache/
 reports/
+
+__pycache__/

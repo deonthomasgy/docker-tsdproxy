@@ -15,6 +15,8 @@ jobs:
         run: docker build --target test --progress=plain .
       - name: Build runtime image
         run: docker build --build-arg GIT_COMMIT="$GITHUB_SHA" -t princeamd/tsdproxy:verify .
+      - name: Offline container smoke checks
+        run: python3 scripts/smoke.py princeamd/tsdproxy:verify
       - name: Scan all severities and enforce no critical or high findings
         run: |
           mkdir -p reports

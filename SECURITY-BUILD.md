@@ -38,7 +38,8 @@ policy, requiring authentication unless the operator deliberately opts in.
 
 Full unsuppressed Trivy JSON, critical/high table, build logs, regression logs
 and govulncheck output are retained locally under `reports/` (gitignored).
-The published release summary is `release.json`.
+The published release summary is `release.json`; the full final report and
+critical/high output are committed under `security/`.
 
 The first race-enabled run exposed unsynchronized authorization-header capture
 in the upstream Proxmox mock HTTP server. A mutex now protects this test helper;
@@ -63,3 +64,42 @@ docker push princeamd/tsdproxy:3.0.0-beta.4-security-r1
 
 No production deployment is performed by the build or CI workflow. Publishing
 uses an explicit beta version tag rather than moving `latest`.
+
+## Scan result and remaining advisory
+
+All 25 packages with tests passed with the race detector; module verification
+and vet passed. The container passed 10 HTTP checks, its healthcheck and clean
+shutdown. The published amd64 manifest matches the locally tested image.
+
+Full Trivy comparison (package/advisory occurrences, no suppression):
+
+| Severity | Deployed 1.4.7 | Upstream beta.4 | Our image |
+|---|---:|---:|---:|
+| Critical | 2 | 0 | 0 |
+| High | 74 | 5 | 0 |
+| Medium | 94 | 13 | 0 |
+| Low | 7 | 1 | 0 |
+| Unknown | 2 | 1 | 1 |
+
+The sole remaining report is `GO-2026-5932`, covering deprecated
+`golang.org/x/crypto/openpgp` (no fixed version). `go list -deps ./cmd/server`
+contains no OpenPGP package; `go mod why golang.org/x/crypto/openpgp` reports
+that this module does not need the package. Source-mode govulncheck 1.9.0
+reports it at module level only, with no imported package or call trace.
+Binary-mode govulncheck conservatively reports the advisory's wildcard package
+symbols, so that output alone is not evidence of a reachable call path.
+
+Disposition: retained module advisory, no reachable OpenPGP code in this
+server build. The rest of x/crypto is needed by Tailscale/SSH; removing the
+whole module would break those features. Keep this advisory visible and
+recheck imports on dependency updates. No Trivy ignore or VEX suppression
+was added. There are zero findings with an available fixed version.
+
+Run the offline container checks with:
+
+```sh
+python3 scripts/smoke.py princeamd/tsdproxy:3.0.0-beta.4-security-r1
+```
+
+This runs with `--network none`, ephemeral data, a disposable test API key,
+and no production mounts. It also checks clean SIGTERM shutdown.

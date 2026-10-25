@@ -1,0 +1,44 @@
+{
+  "version": "3.0.0-beta.4-security-r1",
+  "upstream_tag": "v3.0.0-beta.4",
+  "upstream_commit": "aa26f04e2c473e6832d0a8c5c077b8571098e5f9",
+  "source_revision": "560c3e7f43a8b8020070243f737c8be931dd6c0d",
+  "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r1@sha256:f841dec2e77b51f70969d59fdcf80c4efb85254a6b6007b223e03631c8a174c4",
+  "image_id": "sha256:f908bfef102160be0ca7171fb4bc03a5bd9e4bec30f05e27a1b407bd0ebd9dab",
+  "platform": "linux/amd64",
+  "go": "1.26.10",
+  "x_net": "0.60.0",
+  "x_crypto": "0.57.0",
+  "scanned_at": "2026-10-25",
+  "trivy": "0.75.0",
+  "severity_counts": {
+    "CRITICAL": 0,
+    "HIGH": 0,
+    "MEDIUM": 0,
+    "LOW": 0,
+    "UNKNOWN": 1
+  },
+  "reported_cves_removed": [
+    "CVE-2026-25681",
+    "CVE-2026-39832"
+  ],
+  "remaining": [
+    {
+      "id": "GO-2026-5932",
+      "severity": "UNKNOWN",
+      "module": "golang.org/x/crypto",
+      "package": "golang.org/x/crypto/openpgp",
+      "fixed_version": null,
+      "disposition": "not imported by server; source govulncheck module-only finding; retained unsuppressed"
+    }
+  ],
+  "verification": {
+    "go_test_race": "passed, 25 packages with tests",
+    "go_mod_verify": "passed",
+    "go_vet": "passed",
+    "container_smoke": "passed: 10 HTTP checks, image healthcheck and graceful shutdown",
+    "published_manifest_matches_tested_image": true,
+    "real_tailnet_e2e": "not run; requires isolated test tailnet",
+    "production_deployed": false
+  }
+}

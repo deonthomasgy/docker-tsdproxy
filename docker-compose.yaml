@@ -1,6 +1,6 @@
 services:
   tsdproxy:
-    image: princeamd/tsdproxy:3.0.0-beta.4-security-r1
+    image: princeamd/tsdproxy:3.0.0-beta.4-security-r1@sha256:f841dec2e77b51f70969d59fdcf80c4efb85254a6b6007b223e03631c8a174c4
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - datadir:/data

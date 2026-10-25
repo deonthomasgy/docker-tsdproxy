@@ -1,0 +1,16 @@
+2026-10-25T18:01:36Z	INFO	[vuln] Vulnerability scanning is enabled
+2026-10-25T18:01:36Z	INFO	Number of language-specific files	num=1
+2026-10-25T18:01:36Z	INFO	[gobinary] Detecting vulnerabilities...
+2026-10-25T18:01:36Z	WARN	Using severities from other vendors for some vulnerabilities. Read https://trivy.dev/docs/v0.75/guide/scanner/vulnerability#severity-selection for details.
+
+Report Summary
+
+┌───────────┬──────────┬─────────────────┐
+│  Target   │   Type   │ Vulnerabilities │
+├───────────┼──────────┼─────────────────┤
+│ tsdproxyd │ gobinary │        0        │
+└───────────┴──────────┴─────────────────┘
+Legend:
+- '-': Not scanned
+- '0': Clean (no security findings detected)
+
