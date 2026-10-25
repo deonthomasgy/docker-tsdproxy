@@ -1,4 +1,4 @@
-# Migration and verified canary
+# Migration and rollout verification
 
 ## Deployment before the canary (2026-10-25)
 
@@ -83,8 +83,8 @@ credentials or Tailscale state.
 
 ## Completed canary: orion-fs-host-1
 
-The owner authorized a one-host rollout on 2026-10-25. This host now runs the
-immutable image in `release.json`. No other host was deployed. The full
+The owner first authorized a one-host rollout on 2026-10-25. Orion ran the
+immutable image in `release.json` before the fleet rollout below. The full
 sanitized record is [security/canary-orion-2026-10-25.json](security/canary-orion-2026-10-25.json).
 
 - Private rollback backup: `/home/thomas/tsdproxy-security-backups/20261025T181353Z`.
@@ -111,6 +111,65 @@ sanitized record is [security/canary-orion-2026-10-25.json](security/canary-orio
   running containers retained their IDs. No unexpected restarts occurred.
 
 This verifies a real synthetic route, not migration of active application
-routes: none were enabled on this host. Additional hosts still need their own
-configuration and route inventory before rollout. The upstream tagged e2e
+routes: none were enabled on this host. The subsequent fleet rollout inventoried each additional host before updating it. The upstream tagged e2e
 suite for all provider modes was not run against the production tailnet.
+
+## Completed reachable fleet rollout (2026-10-25)
+
+Following authorization to roll out everywhere, all **17 discovered TSDProxy
+instances** now use the pinned image in `release.json`: 16 servers plus the
+local workstation (`alpha-old`). Sixteen were upgraded in this phase; Orion
+was already running the verified canary. All 17 passed Docker health and
+authentication checks, with no unexpected restarts. Every Compose file pins
+the same digest and mounts persistent private configuration.
+
+See [the full fleet record](security/fleet-rollout-2026-10-25.json) for host
+names, backup paths, route results and identity comparisons.
+
+The inventory inspected Docker on 27 hosts. Ten had no TSDProxy container.
+All online SSH-inaccessible tailnet endpoints matched known proxied
+applications. Six **offline** hosts could not be inventoried:
+`deployer`, `twingate-asl-1`, `kvm`, `client-sites-1`, `financial`, and `helpdesk`.
+No claim is made about containers on those unavailable hosts.
+
+### Compatibility handled
+
+- For 1.4.7 hosts with routes, `tryDockerInternalNetwork: true` explicitly
+  preserves v1's default auto-detection. Existing 3.x routing defaults were
+  retained. This matters where a copied target hostname points at another host.
+- 1.x defaulted unlabeled nodes to ephemeral; v3 defaults to persistent.
+  Eleven legacy node IDs/IPs changed during replacement, with every existing
+  route DNS name retained. The two other legacy route identities survived.
+  All 25 route identities on previously running 3.x instances were preserved.
+  Consumers should continue using the stable DNS names.
+- Existing effective Funnel and TLS-validation exceptions were retained;
+  ignored Funnel labels were not newly enabled. In particular, the existing
+  `open-webui` Funnel route remains enabled on `lazy-ai`.
+- `adminAllowLocalhost` is false throughout. Existing API keys were preserved;
+  where none existed, a private key was generated in the mounted configuration.
+  Do not print or commit these configurations or rollback archives.
+- Docker installations expose either manifest IDs or image configuration IDs.
+  Both were validated against the exact registry digest, architecture and source
+  revision; all hosts run the same image artifact.
+
+### Live verification and existing failures
+
+All **31 previously working HTTPS routes** retained their successful response
+or expected redirect, verified again from a separate tailnet client. There
+were **zero new route regressions**. Seven failures were already present in
+the baseline and remain outside this image rollout:
+
+| Host | Routes | Existing result |
+|---|---|---|
+| `mintage-host-10` | `weasyprint-p7-mh7-3`, `weasyprint-p8-mh7-3` | HTTP 502 |
+| `mintage-host-9` | `weasyprint-p7-mh9-1`, `weasyprint-p8-mh9-1` | Timeout |
+| `mintage-sbm-test-1` | `weasyprint-p7-sbm`, `weasyprint-p8-sbm` | Timeout |
+| `alpha-old` | `ws-orion` | Timeout |
+
+Every upgraded host retains a private original Compose/config backup and a
+consistent stopped-volume archive under `/home/thomas/tsdproxy-security-backups/`.
+The exact directory is in the fleet record. Existing running application
+containers retained their IDs. The deployment scripts under `scripts/fleet-*`
+are specific to this release and these observed configurations; they check for
+drift before changing a service and restore the old service/state on a failed
+upgrade check. Baseline artifacts and detailed logs remain in local `reports/fleet/`.

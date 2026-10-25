@@ -11,7 +11,8 @@ dependencies stay in build stages. Docker startup preserves
 `adminAllowLocalhost: false`; authenticated dashboard access is the default.
 
 - [Build, tests and security findings](SECURITY-BUILD.md)
-- [1.4.7 to 3.x migration and rollback](MIGRATION.md)
+- [Migration, rollback and fleet rollout](MIGRATION.md)
+- [Verified fleet: 17 healthy instances](security/fleet-rollout-2026-10-25.json)
 - [Upstream provenance](UPSTREAM.md)
 - [Original upstream README](UPSTREAM-README.md)
 

@@ -38,7 +38,7 @@
     "go_vet": "passed",
     "container_smoke": "passed: 10 HTTP checks, image healthcheck and graceful shutdown",
     "published_manifest_matches_tested_image": true,
-    "real_tailnet_e2e": "Manual single-host canary passed HTTP and certificate-verified HTTPS from a separate Tailscale client; upstream tagged e2e suite not run",
+    "real_tailnet_e2e": "Live fleet HTTPS checks: 31 previously working routes preserved, 7 pre-existing failures, 0 new regressions; earlier disposable HTTP/HTTPS canary passed; upstream tagged e2e suite not run",
     "production_deployed": true
   },
   "canary": {
@@ -47,5 +47,12 @@
     "status": "healthy",
     "scope": "one host only",
     "report": "security/canary-orion-2026-10-25.json"
+  },
+  "fleet": {
+    "verified_at": "2026-10-25T18:36:15.323803+00:00",
+    "instances": 17,
+    "healthy": 17,
+    "scope": "all discovered reachable instances; 6 offline hosts not inventoried",
+    "report": "security/fleet-rollout-2026-10-25.json"
   }
 }
