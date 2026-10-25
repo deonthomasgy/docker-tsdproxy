@@ -1,44 +1,27 @@
-# This workflow will build a golang project
-# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-go
-
-name: build
-
+name: Build and verify
 on:
+  push:
+    branches: [main]
   pull_request:
-
+  workflow_dispatch:
 permissions:
   contents: read
-
 jobs:
-  build:
+  verify:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
-
-      - name: Set up Go
-        uses: actions/setup-go@v6
-        with:
-          go-version-file: "go.mod"
-      - uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-      - name: Install bun dependencies
-        run: bun i --cwd ./web
-
-      - name: Install templ
+      - name: Unit tests, race detector, module verification and vet
+        run: docker build --target test --progress=plain .
+      - name: Build runtime image
+        run: docker build --build-arg GIT_COMMIT="$GITHUB_SHA" -t princeamd/tsdproxy:verify .
+      - name: Scan all severities and enforce no critical or high findings
         run: |
-          TEMPL_VER=$(go list -m github.com/a-h/templ | awk '{print $2}')
-          curl -sSL "https://github.com/a-h/templ/releases/download/${TEMPL_VER}/templ_Linux_x86_64.tar.gz" \
-            | tar xz -C /usr/local/bin templ
-      - name: Generate
-        run: go generate ./...
-      - name: Build frontend
-        run: bun run --cwd web build
-      - name: Build
-        run: go build -v ./...
-      - name: Test
-        run: go test -race -buildvcs ./...
-      - name: Lint
-        uses: golangci/golangci-lint-action@v9
+          mkdir -p reports
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock -v "$PWD/reports:/reports" aquasec/trivy:0.75.0 image --scanners vuln --format json --output /reports/trivy.json princeamd/tsdproxy:verify
+          docker run --rm -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy:0.75.0 image --scanners vuln --severity CRITICAL,HIGH --exit-code 1 princeamd/tsdproxy:verify
+      - uses: actions/upload-artifact@v7
+        if: always()
         with:
-          version: latest
+          name: security-report
+          path: reports/

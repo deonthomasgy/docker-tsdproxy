@@ -7,6 +7,7 @@ import (
 	"context"
 	"net/http"
 	"net/http/httptest"
+	"sync"
 	"testing"
 
 	"github.com/almeidapaulopt/tsdproxy/internal/config"
@@ -23,8 +24,11 @@ func newPVE(
 	t.Helper()
 
 	var auth string
+	var authMu sync.Mutex
 	server := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, req *http.Request) {
+		authMu.Lock()
 		auth = req.Header.Get("Authorization")
+		authMu.Unlock()
 
 		if req.URL.Path == "/api2/json/version" {
 			w.Header().Set("Content-Type", "application/json")
@@ -44,7 +48,11 @@ func newPVE(
 			m(provider)
 		}
 		return provider
-	}, func() string { return auth }
+	}, func() string {
+		authMu.Lock()
+		defer authMu.Unlock()
+		return auth
+	}
 }
 
 func TestRestClient_TokenFormatValidated(t *testing.T) {

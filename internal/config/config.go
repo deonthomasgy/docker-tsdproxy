@@ -305,11 +305,9 @@ func InitializeConfig(log zerolog.Logger) (*Data, error) {
 // applyDockerDefaults adjusts configuration defaults when running inside a
 // Docker container.
 //
-// Outside Docker the defaults remain conservative (127.0.0.1 hostname,
-// adminAllowLocalhost false) per GHSA-j8rq-87gr-gm9q. Inside Docker these
-// values are impractical: 127.0.0.1 is unreachable via port mapping and
-// port-mapped dashboard requests arrive from the Docker bridge gateway
-// (private IP) without a Tailscale identity.
+// Bind the HTTP listener to the container network for port mapping, but retain
+// the configured authentication policy. A Docker bridge/private address is not
+// proof of administrator identity; local admin access must remain opt-in.
 func (c *Data) applyDockerDefaults(log zerolog.Logger) {
 	if !isRunningInDocker() {
 		return
@@ -317,10 +315,6 @@ func (c *Data) applyDockerDefaults(log zerolog.Logger) {
 	if c.HTTP.Hostname == "127.0.0.1" {
 		c.HTTP.Hostname = "0.0.0.0"
 		log.Info().Msg("running in Docker: defaulting http.hostname to 0.0.0.0")
-	}
-	if !c.AdminAllowLocalhost {
-		c.AdminAllowLocalhost = true
-		log.Info().Msg("running in Docker: enabling adminAllowLocalhost")
 	}
 }
 

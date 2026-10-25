@@ -58,3 +58,6 @@ web/main.zip
 web/.tmp-icons
 web/scripts/.download-cache.json
 /dev/incus-test
+
+.cache/
+reports/

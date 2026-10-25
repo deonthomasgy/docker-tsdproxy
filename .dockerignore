@@ -1,1 +1,8 @@
 dev/
+.git/
+.cache/
+reports/
+.env
+**/node_modules/
+web/dist/
+**/*_templ.go
