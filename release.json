@@ -1,15 +1,15 @@
 {
-  "version": "3.0.0-beta.4-security-r1",
+  "version": "3.0.0-beta.4-security-r2",
   "upstream_tag": "v3.0.0-beta.4",
   "upstream_commit": "aa26f04e2c473e6832d0a8c5c077b8571098e5f9",
-  "source_revision": "560c3e7f43a8b8020070243f737c8be931dd6c0d",
-  "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r1@sha256:f841dec2e77b51f70969d59fdcf80c4efb85254a6b6007b223e03631c8a174c4",
-  "image_id": "sha256:f908bfef102160be0ca7171fb4bc03a5bd9e4bec30f05e27a1b407bd0ebd9dab",
+  "source_revision": "c4b7e865949992d5e341b9f967eae1d6d716fc71",
+  "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+  "image_id": "sha256:d07e7fafe39ff84a3e992d2459114e52669dc0eba92273d6b3a4d1ce0fc22a41",
   "platform": "linux/amd64",
-  "go": "1.26.10",
+  "go": "1.27.3",
   "x_net": "0.60.0",
   "x_crypto": "0.57.0",
-  "scanned_at": "2026-10-25",
+  "scanned_at": "2026-10-26",
   "trivy": "0.75.0",
   "severity_counts": {
     "CRITICAL": 0,
@@ -29,30 +29,31 @@
       "module": "golang.org/x/crypto",
       "package": "golang.org/x/crypto/openpgp",
       "fixed_version": null,
-      "disposition": "not imported by server; source govulncheck module-only finding; retained unsuppressed"
+      "disposition": "not imported by updated server; retained unsuppressed module advisory"
     }
   ],
   "verification": {
-    "go_test_race": "passed, 25 packages with tests",
+    "go_test_race": "passed, 26 packages with tests",
     "go_mod_verify": "passed",
     "go_vet": "passed",
-    "container_smoke": "passed: 10 HTTP checks, image healthcheck and graceful shutdown",
+    "container_smoke": "passed on published image: 10 HTTP checks, healthcheck and graceful shutdown",
     "published_manifest_matches_tested_image": true,
-    "real_tailnet_e2e": "Live fleet HTTPS checks: 31 previously working routes preserved, 7 pre-existing failures, 0 new regressions; earlier disposable HTTP/HTTPS canary passed; upstream tagged e2e suite not run",
+    "real_tailnet_e2e": "39 live routes checked: 32 working responses preserved, 7 pre-existing failures, 0 new regressions; all 39 node IDs and IP addresses preserved; tagged upstream E2E suite not run",
     "production_deployed": true
   },
   "canary": {
     "host": "orion-fs-host-1",
-    "verified_at": "2026-10-25T18:19:11.744990+00:00",
+    "verified_at": "2026-10-26T22:53:12.144021+00:00",
     "status": "healthy",
-    "scope": "one host only",
-    "report": "security/canary-orion-2026-10-25.json"
+    "scope": "initial canary followed by live-route canary on mintage-host-8 and fleet rollout",
+    "report": "security/fleet-rollout-2026-10-26-r2.json"
   },
   "fleet": {
-    "verified_at": "2026-10-25T18:36:15.323803+00:00",
+    "verified_at": "2026-10-26T23:00:09.623273+00:00",
     "instances": 17,
     "healthy": 17,
-    "scope": "all discovered reachable instances; 6 offline hosts not inventoried",
-    "report": "security/fleet-rollout-2026-10-25.json"
-  }
+    "scope": "all discovered reachable instances; kvm offline and not inventoried",
+    "report": "security/fleet-rollout-2026-10-26-r2.json"
+  },
+  "tailscale": "1.104.2"
 }

@@ -1,4 +1,4 @@
-# Security build — 2026-10-26 (r2 source update)
+# Security build — 2026-10-26 (r2 published and deployed)
 
 [Tailscale TS-2026-013](https://tailscale.com/security-bulletins#ts-2026-013)
 requires rejecting compromised eMudhra intermediate certificates even when
@@ -24,11 +24,11 @@ module Go requirement and both Docker builders. It guards these minimum
 versions, the actual test compiler and consistency of the Docker version
 stamp; it does not simulate a forged certificate.
 
-The new build revision is `3.0.0-beta.4-security-r2`. The existing
-`release.json`, committed scans and fleet report remain historical r1
-evidence; this source update does not publish or deploy r2.
+The published build is `3.0.0-beta.4-security-r2`, pinned by digest in
+`release.json`. The previous release record is retained in
+`security/release-r1.json`; the dated r1 scan and fleet report remain historical.
 
-Validation of the local amd64 r2 image:
+Validation of the published amd64 r2 image:
 
 - All 26 packages with tests passed with `-race -count=1`; module checksum
   verification and `go vet ./...` passed in the Docker test target.
@@ -40,6 +40,12 @@ Validation of the local amd64 r2 image:
   dependency list contains no OpenPGP packages.
 - Logs, the unsuppressed scan and server import list are retained locally
   under `reports/ts2026013/` (gitignored).
+- The exact published artifact was rescanned; its full report is
+  `security/trivy-2026-10-26-r2.json`.
+- All 17 discovered reachable instances run the pinned r2 image. All 39
+  route node IDs and addresses survived; 32 working route responses were
+  preserved and seven baseline failures remained, with zero new regressions.
+  See `security/fleet-rollout-2026-10-26-r2.json` for the verified rollout.
 
 ## Previous release verification — 2026-10-25 (r1)
 

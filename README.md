@@ -13,14 +13,15 @@ dependencies stay in build stages. Docker startup preserves
 
 - [Build, tests and security findings](SECURITY-BUILD.md)
 - [Migration, rollback and fleet rollout](MIGRATION.md)
-- [Verified fleet: 17 healthy instances](security/fleet-rollout-2026-10-25.json)
+- [Verified fleet: 17 healthy r2 instances](security/fleet-rollout-2026-10-26-r2.json)
 - [Upstream provenance](UPSTREAM.md)
 - [Original upstream README](UPSTREAM-README.md)
 
-Published image: `princeamd/tsdproxy:3.0.0-beta.4-security-r1`.
-The TS-2026-013 fix is in source revision `3.0.0-beta.4-security-r2`;
-it requires rebuilding and redeploying. `release.json` and the fleet report
-still describe the previously published r1 image.
+Published and deployed image: `princeamd/tsdproxy:3.0.0-beta.4-security-r2`.
+Use the immutable digest in `release.json`. All 17 discovered reachable
+instances passed health and authentication checks; all 39 route identities
+were preserved, with zero new route regressions. The offline `kvm` host
+could not be inventoried.
 3.x remains a beta. Publishing this image does not deploy it.
 
 ## Build and verify

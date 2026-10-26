@@ -1,0 +1,1835 @@
+{
+  "verified_at": "2026-10-26T23:00:09.623273+00:00",
+  "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+  "summary": {
+    "instances": 17,
+    "healthy": 17,
+    "routes": 39,
+    "working_baseline_preserved": 32,
+    "pre_existing_route_failures": 7,
+    "new_route_regressions": 0,
+    "route_identities_preserved": 39
+  },
+  "discovery": {
+    "docker_hosts_inspected": 29,
+    "offline_uninventoried": [
+      "kvm.sphinx-butterfly.ts.net"
+    ]
+  },
+  "hosts": [
+    {
+      "name": "tsdproxy-tailscale-docker-proxy-1",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [
+        {
+          "name": "weasyprint-p7-sbm",
+          "status": "Running",
+          "health": "down",
+          "url": "https://weasyprint-p7-sbm.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://mintage-sbm-test-1.sphinx-butterfly.ts.net:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "weasyprint-p8-sbm",
+          "status": "Running",
+          "health": "down",
+          "url": "https://weasyprint-p8-sbm.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://mintage-sbm-test-1.sphinx-butterfly.ts.net:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        }
+      ],
+      "host": "mintage-sbm-test-1.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225452Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    },
+    {
+      "name": "tsdproxy-tailscale-docker-proxy-1",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [
+        {
+          "name": "weasyprint-p7-mh8",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://weasyprint-p7-mh8.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.3:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "weasyprint-p8-mh8",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://weasyprint-p8-mh8.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.2:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        }
+      ],
+      "host": "mintage-host-8.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225434Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    },
+    {
+      "name": "tsdproxy-tailscale-docker-proxy-1",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [
+        {
+          "name": "weasyprint-p8-mh7",
+          "status": "Running",
+          "health": "down",
+          "url": "https://weasyprint-p8-mh7-3.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://mintage-host-7.sphinx-butterfly.ts.net:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "weasyprint-p7-mh7",
+          "status": "Running",
+          "health": "down",
+          "url": "https://weasyprint-p7-mh7-3.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://mintage-host-7.sphinx-butterfly.ts.net:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        }
+      ],
+      "host": "mintage-host-10.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225407Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    },
+    {
+      "name": "tsdproxy-tailscale-docker-proxy-1",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:d07e7fafe39ff84a3e992d2459114e52669dc0eba92273d6b3a4d1ce0fc22a41",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [],
+      "host": "mintage-host-3.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225415Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    },
+    {
+      "name": "tsdproxy-tailscale-docker-proxy-1",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [
+        {
+          "name": "weasyprint-wf1-1",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://weasyprint-wf1-1.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.130:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "weasyprint-wf1-2",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://weasyprint-wf1-2.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.37:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        }
+      ],
+      "host": "mintage-wf-host-1.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225508Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    },
+    {
+      "name": "tsdproxy-tailscale-docker-proxy-1",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:d07e7fafe39ff84a3e992d2459114e52669dc0eba92273d6b3a4d1ce0fc22a41",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [],
+      "host": "mintage-host-2.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225411Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    },
+    {
+      "name": "tsdproxy",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [
+        {
+          "name": "aloud",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://aloud.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.19.0.2:8080",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "open-webui",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://open-webui.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.1:3000",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": true
+            }
+          ]
+        }
+      ],
+      "host": "lazy-ai.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225347Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    },
+    {
+      "name": "tsdproxy-tailscale-docker-proxy-1",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:d07e7fafe39ff84a3e992d2459114e52669dc0eba92273d6b3a4d1ce0fc22a41",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [],
+      "host": "orion-fs-host-1.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225307Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    },
+    {
+      "name": "tsdproxy-tailscale-docker-proxy-1",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:d07e7fafe39ff84a3e992d2459114e52669dc0eba92273d6b3a4d1ce0fc22a41",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [],
+      "host": "mintage-hcp-host-1.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225359Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    },
+    {
+      "name": "tsdproxy-tailscale-docker-proxy-1",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [
+        {
+          "name": "mp-deployer",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://mp-deployer.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.15:8000",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "tenant-loading-go",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://tenant-loading-go.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.11:8080",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "lt",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://lt.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.4:8170",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "ws",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://ws.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.12:6001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "ticket-tracker-go",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://ticket-tracker-go.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.9:8080",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "pdf2img",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://pdf2img.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.20:3000",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "nl",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://nl.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.16:8082",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "auditor-go",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://auditor-go.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.8:8080",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "za",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://za.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.2:8081",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "mintage-financial",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://mintage-financial.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.14:8000",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        }
+      ],
+      "host": "mintage-apps.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225355Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    },
+    {
+      "name": "tsdproxy-tailscale-docker-proxy-1",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [
+        {
+          "name": "weasyprint-p8-mh9",
+          "status": "Running",
+          "health": "down",
+          "url": "https://weasyprint-p8-mh9-1.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://mintage-host-9.sphinx-butterfly.ts.net:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "weasyprint-p7-mh9",
+          "status": "Running",
+          "health": "down",
+          "url": "https://weasyprint-p7-mh9-1.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://mintage-host-9.sphinx-butterfly.ts.net:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        }
+      ],
+      "host": "mintage-host-9.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225437Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    },
+    {
+      "name": "tsdproxy-tailscale-docker-proxy-1",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:d07e7fafe39ff84a3e992d2459114e52669dc0eba92273d6b3a4d1ce0fc22a41",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [
+        {
+          "name": "weasyprint-p7-mh5",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://weasyprint-p7-mh5.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.10:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "weasyprint-p8-mh5",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://weasyprint-p8-mh5.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.5:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        }
+      ],
+      "host": "mintage-host-5.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225422Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    },
+    {
+      "name": "tsdproxy-tailscale-docker-proxy-1",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:d07e7fafe39ff84a3e992d2459114e52669dc0eba92273d6b3a4d1ce0fc22a41",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [
+        {
+          "name": "weasyprint-p7-mh7",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://weasyprint-p7-mh7.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.8:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "weasyprint-p8-mh7",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://weasyprint-p8-mh7.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.9:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        }
+      ],
+      "host": "mintage-host-7.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225430Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    },
+    {
+      "name": "tsdproxy-tailscale-docker-proxy-1",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:d07e7fafe39ff84a3e992d2459114e52669dc0eba92273d6b3a4d1ce0fc22a41",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [
+        {
+          "name": "weasyprint-p8-mh4",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://weasyprint-p8-mh4.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.7:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "weasyprint-p7-mh4",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://weasyprint-p7-mh4.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.5:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        }
+      ],
+      "host": "mintage-host-4.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225419Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    },
+    {
+      "name": "tsdproxy-tailscale-docker-proxy-1",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:d07e7fafe39ff84a3e992d2459114e52669dc0eba92273d6b3a4d1ce0fc22a41",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [],
+      "host": "mintage-host-1.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225659Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    },
+    {
+      "name": "tsdproxy-tailscale-docker-proxy-1",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:d07e7fafe39ff84a3e992d2459114e52669dc0eba92273d6b3a4d1ce0fc22a41",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [
+        {
+          "name": "weasyprint-p8-mh6",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://weasyprint-p8-mh6.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.3:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "weasyprint-p7-mh6",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://weasyprint-p7-mh6.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.8:5001",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        }
+      ],
+      "host": "mintage-host-6.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225426Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    },
+    {
+      "name": "tsdproxy",
+      "image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "image_id": "sha256:d07e7fafe39ff84a3e992d2459114e52669dc0eba92273d6b3a4d1ce0fc22a41",
+      "version": "3.0.0-beta.4-security-r2",
+      "running": true,
+      "health": "healthy",
+      "restart_count": 0,
+      "compose_image": "princeamd/tsdproxy:3.0.0-beta.4-security-r2@sha256:134e390ecdbe71ea74adbb5d658fd47cf551fc752197a96952f7f229b23a1587",
+      "config_mounted": true,
+      "admin_allow_localhost": false,
+      "published_ports": {},
+      "checks": {
+        "/health/ready/ anonymous": 200,
+        "/ anonymous": 403,
+        "/api/version anonymous": 403,
+        "/api/version authenticated": 200,
+        "/ authenticated": 200
+      },
+      "routes": [
+        {
+          "name": "mintage-dev",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://mintage-dev.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.37:8080",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "synthwave-player",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://synthwave-player.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.18:8160",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "orion",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://orion.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.14:80",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "orion84",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://orion84.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.22:80",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "api-mintage-go",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://api-mintage-go-1.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.17:8080",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "pithagoras",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://pithagoras.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "tsdproxy.port.1",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.12:4100",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "bots",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://bots.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://192.168.48.1:5173",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "ws-orion",
+          "status": "Running",
+          "health": "down",
+          "url": "https://ws-orion.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.26:3000",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        },
+        {
+          "name": "grafana",
+          "status": "Running",
+          "health": "healthy",
+          "url": "https://grafana.sphinx-butterfly.ts.net",
+          "ports": [
+            {
+              "name": "legacy",
+              "proxyProtocol": "https",
+              "targetUrl": "http://172.18.0.19:3000",
+              "proxyPort": 443,
+              "tlsValidate": true,
+              "isRedirect": false,
+              "funnel": false
+            }
+          ]
+        }
+      ],
+      "host": "alpha-old.sphinx-butterfly.ts.net",
+      "passed": true,
+      "backup": "/home/thomas/tsdproxy-security-backups/20261026T225510Z-r2",
+      "configuration_unchanged": true,
+      "other_containers_unchanged": true
+    }
+  ],
+  "route_checks": [
+    {
+      "url": "https://aloud.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://aloud.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "dcb72abf5c9650daf6897c44fd6e840b1a1c909f59a18eddb658356f70278b57",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://api-mintage-go-1.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://api-mintage-go-1.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "31d1c3c25af5c2851fd498954cfc32e3042ef41b42f3ca19aaec09056fed7f09",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://auditor-go.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://auditor-go.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "0749e289b4acf4837d191fa6e63cbc05d1b96ba4f7d899f3f0bcbad9647ddcf5",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://bots.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://bots.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "d60b555f120ba03ae83a458e98488beb6f4e32da626571538e435ac09fcb453b",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://grafana.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://grafana.sphinx-butterfly.ts.net",
+        "status": 302,
+        "body_sha256": "0d1cfad8b38bdd6d8cba9c691708aa38afac21f9c53a22be986464500a0180f1",
+        "tls_verified": true
+      },
+      "status": 302,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://lt.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://lt.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "924d5a170574dc94fac890db433f930f5242b9ada640308f23fa3d6fca8e6776",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://mintage-dev.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://mintage-dev.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "7d8e5da95bd97ac501f7ebece1fdb6fed32f7e44e9bf3b92a7fcff9b4516d581",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://mintage-financial.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://mintage-financial.sphinx-butterfly.ts.net",
+        "status": 302,
+        "body_sha256": "6e909907cc081e19f0247d74f7bc3251eeaeee06a46eac215ffbb773b7a3ba20",
+        "tls_verified": true
+      },
+      "status": 302,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://mp-deployer.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://mp-deployer.sphinx-butterfly.ts.net",
+        "status": 302,
+        "body_sha256": "a699fc94b477647bc2dc732714e4277e248faee9b9a5d5a2a4628477a17a8b72",
+        "tls_verified": true
+      },
+      "status": 302,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://nl.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://nl.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "1d03ee3f33374c8faee4716eca0533a2df5e4fefb6b5fdc77cd1b211431a8faf",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://open-webui.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://open-webui.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "f9f08d38993ce1490cc6ce95c493ee6184dba151bf216594b93fb2749f23caae",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://orion.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://orion.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "5c15087462f8bf710301dbfb92c92f592c57faca0dc2d05ce8c0814ebba7b9ef",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://orion84.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://orion84.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "5c15087462f8bf710301dbfb92c92f592c57faca0dc2d05ce8c0814ebba7b9ef",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://pdf2img.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://pdf2img.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "15833ab2d8c62925f49179034fbfa2cb7c9537156016a07aadbcc3d3c0279ffa",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://pithagoras.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://pithagoras.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "5c419deff6db0dd8d74406dcb97e6f735085ede2f39bda51f66072da2e6dc361",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://synthwave-player.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://synthwave-player.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "919758a394f9676d99680ed6945fe0513734f9da5a00e91cee675ff6034b3e69",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://tenant-loading-go.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://tenant-loading-go.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "5a019fb37ad061df60f2b79077203c9f324e75d19afd048cfee50fae476211d0",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://ticket-tracker-go.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://ticket-tracker-go.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "ce6855c63f4e94e40924297f08ee9cdc00a114dfa2e4adadb4b675c3d8b9b4ee",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-p7-mh4.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-p7-mh4.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "7dd4997b9244e5c2e6d8ad87d50304b3fa6dece7016ba8250e4d83fe1a9a2d60",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-p7-mh5.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-p7-mh5.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "7dd4997b9244e5c2e6d8ad87d50304b3fa6dece7016ba8250e4d83fe1a9a2d60",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-p7-mh6.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-p7-mh6.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "7dd4997b9244e5c2e6d8ad87d50304b3fa6dece7016ba8250e4d83fe1a9a2d60",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-p7-mh7-3.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-p7-mh7-3.sphinx-butterfly.ts.net",
+        "status": 502,
+        "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tls_verified": true
+      },
+      "status": 502,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-p7-mh7.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-p7-mh7.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "7dd4997b9244e5c2e6d8ad87d50304b3fa6dece7016ba8250e4d83fe1a9a2d60",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-p7-mh8.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-p7-mh8.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "7dd4997b9244e5c2e6d8ad87d50304b3fa6dece7016ba8250e4d83fe1a9a2d60",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-p7-mh9-1.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-p7-mh9-1.sphinx-butterfly.ts.net",
+        "error": "TimeoutError"
+      },
+      "error": "TimeoutError",
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-p7-sbm.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-p7-sbm.sphinx-butterfly.ts.net",
+        "error": "TimeoutError"
+      },
+      "error": "TimeoutError",
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-p8-mh4.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-p8-mh4.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "7dd4997b9244e5c2e6d8ad87d50304b3fa6dece7016ba8250e4d83fe1a9a2d60",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-p8-mh5.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-p8-mh5.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "7dd4997b9244e5c2e6d8ad87d50304b3fa6dece7016ba8250e4d83fe1a9a2d60",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-p8-mh6.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-p8-mh6.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "7dd4997b9244e5c2e6d8ad87d50304b3fa6dece7016ba8250e4d83fe1a9a2d60",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-p8-mh7-3.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-p8-mh7-3.sphinx-butterfly.ts.net",
+        "status": 502,
+        "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "tls_verified": true
+      },
+      "status": 502,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-p8-mh7.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-p8-mh7.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "7dd4997b9244e5c2e6d8ad87d50304b3fa6dece7016ba8250e4d83fe1a9a2d60",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-p8-mh8.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-p8-mh8.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "7dd4997b9244e5c2e6d8ad87d50304b3fa6dece7016ba8250e4d83fe1a9a2d60",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-p8-mh9-1.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-p8-mh9-1.sphinx-butterfly.ts.net",
+        "error": "TimeoutError"
+      },
+      "error": "TimeoutError",
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-p8-sbm.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-p8-sbm.sphinx-butterfly.ts.net",
+        "error": "TimeoutError"
+      },
+      "error": "TimeoutError",
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-wf1-1.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-wf1-1.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "7dd4997b9244e5c2e6d8ad87d50304b3fa6dece7016ba8250e4d83fe1a9a2d60",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://weasyprint-wf1-2.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://weasyprint-wf1-2.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "7dd4997b9244e5c2e6d8ad87d50304b3fa6dece7016ba8250e4d83fe1a9a2d60",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://ws-orion.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://ws-orion.sphinx-butterfly.ts.net",
+        "error": "TimeoutError"
+      },
+      "error": "TimeoutError",
+      "regression": false
+    },
+    {
+      "url": "https://ws.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://ws.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "68fd4f57665bfc2dea7afe7a1e525defe65af729d7b0f30e693aaec660a85b43",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    },
+    {
+      "url": "https://za.sphinx-butterfly.ts.net",
+      "baseline": {
+        "url": "https://za.sphinx-butterfly.ts.net",
+        "status": 200,
+        "body_sha256": "f149eb38424dc2511c75e7835bd84172cf7c24df147f938e75504764461ad8ba",
+        "tls_verified": true
+      },
+      "status": 200,
+      "tls_verified": true,
+      "regression": false
+    }
+  ],
+  "route_identity_checks": [
+    {
+      "dns": "aloud.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "api-mintage-go-1.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "auditor-go.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "bots.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "grafana.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "lt.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "mintage-dev.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "mintage-financial.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "mp-deployer.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "nl.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "open-webui.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "orion.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "orion84.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "pdf2img.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "pithagoras.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "synthwave-player.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "tenant-loading-go.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "ticket-tracker-go.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-p7-mh4.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-p7-mh5.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-p7-mh6.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-p7-mh7-3.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-p7-mh7.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-p7-mh8.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-p7-mh9-1.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-p7-sbm.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-p8-mh4.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-p8-mh5.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-p8-mh6.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-p8-mh7-3.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-p8-mh7.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-p8-mh8.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-p8-mh9-1.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-p8-sbm.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-wf1-1.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "weasyprint-wf1-2.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "ws-orion.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "ws.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    },
+    {
+      "dns": "za.sphinx-butterfly.ts.net",
+      "present": true,
+      "node_id_preserved": true,
+      "addresses_preserved": true
+    }
+  ],
+  "notes": [
+    "Image-only updates preserve all private configuration and data volumes; stopped-volume rollback archives remain private on each host.",
+    "mintage-host-1 was automatically rolled back after detecting an independent Swarm task replacement since preparation, then updated successfully using the immediate pre-stop comparison baseline.",
+    "No unrelated application container was recreated by the rollout.",
+    "The tagged upstream E2E suite was not run; verification used authenticated health/API checks and existing live HTTPS routes."
+  ]
+}

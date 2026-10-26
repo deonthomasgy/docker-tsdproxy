@@ -1,5 +1,31 @@
 # Migration and rollout verification
 
+## Image-only r2 rollout (2026-10-26)
+
+All 17 discovered reachable TSDProxy instances now run the immutable r2
+image in `release.json`, with Tailscale 1.104.2 and Go 1.27.3. Every instance
+passed Docker health and authenticated/anonymous management checks.
+All 39 route identities and addresses were preserved. Independent-client
+HTTPS checks preserved 32 working responses and identified seven unchanged
+baseline failures, with no new regressions.
+
+Only each service's image declaration changed. Configuration bytes, data
+volumes, routes, Funnel settings and other application containers were
+preserved. Private stopped-volume backups and original Compose/config files
+remain on each host; their locations are in the
+[r2 fleet report](security/fleet-rollout-2026-10-26-r2.json).
+
+The rollout verified Orion first and then a host with live routes before
+proceeding through the fleet. An independent Swarm task replacement on
+`mintage-host-1` tripped the unrelated-container check and caused an automatic
+rollback. After refreshing that comparison to the immediate pre-stop state,
+the host updated successfully. All final health checks passed.
+
+Docker was inspected on 29 hosts; 17 had TSDProxy. `kvm` was offline and could
+not be inventoried. The historical r1 release record is preserved in
+[`security/release-r1.json`](security/release-r1.json); the sections below
+document that earlier migration.
+
 ## Deployment before the canary (2026-10-25)
 
 Host: `orion-fs-host-1`. Compose project `tsdproxy`, service
