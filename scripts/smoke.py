@@ -8,8 +8,8 @@ import tempfile
 import time
 import uuid
 
-IMAGE = sys.argv[1] if len(sys.argv) > 1 else 'princeamd/tsdproxy:3.0.0-beta.4-security-r1'
-GO_IMAGE = 'golang:1.26.10-bookworm@sha256:632dff7351799a5a9954a48dc06670ade72ee44e8c351cdc0e5a57af2fea21af'
+IMAGE = sys.argv[1] if len(sys.argv) > 1 else 'princeamd/tsdproxy:3.0.0-beta.4-security-r2'
+GO_IMAGE = 'golang:1.27.3-bookworm@sha256:972b4110ba0f47539a975c31e52c64765e1ff19f2d74469ae4a595c6676e80a5'
 CLIENT = r'''package main
 import("fmt";"io";"net/http";"os";"strings";"syscall";"time")
 func main(){
@@ -21,7 +21,7 @@ func main(){
  {"/api/version","",403,""},
  {"/api/v1/proxies","",403,""},
  {"/api/version","wrong",403,""},
- {"/api/version","offline-smoke-test-only",200,"3.0.0-beta.4-security-r1"},
+ {"/api/version","offline-smoke-test-only",200,"3.0.0-beta.4-security-r2"},
  {"/api/v1/proxies","offline-smoke-test-only",200,""},
  {"/","offline-smoke-test-only",200,"html"},
  {"/app.js","",200,""},

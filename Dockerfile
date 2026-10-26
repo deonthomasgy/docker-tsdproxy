@@ -9,13 +9,13 @@ COPY web/ ./
 COPY internal/ /app/internal/
 RUN bun run build
 
-FROM --platform=$BUILDPLATFORM golang:1.26.10-bookworm@sha256:632dff7351799a5a9954a48dc06670ade72ee44e8c351cdc0e5a57af2fea21af AS source
+FROM --platform=$BUILDPLATFORM golang:1.27.3-bookworm@sha256:972b4110ba0f47539a975c31e52c64765e1ff19f2d74469ae4a595c6676e80a5 AS source
 
 ARG TARGETOS
 ARG TARGETARCH
 ARG TARGETVARIANT
-ARG VERSION=3.0.0-beta.4-security-r1
-ARG TAILSCALE_VERSION=1.102.5
+ARG VERSION=3.0.0-beta.4-security-r2
+ARG TAILSCALE_VERSION=1.104.2
 ARG GIT_COMMIT
 
 ENV GOTOOLCHAIN=local
@@ -51,7 +51,7 @@ RUN --mount=type=cache,target=/go/pkg/mod --mount=type=cache,target=/root/.cache
       -o /tsdproxyd ./cmd/server/
 
 FROM scratch
-ARG VERSION=3.0.0-beta.4-security-r1
+ARG VERSION=3.0.0-beta.4-security-r2
 ARG GIT_COMMIT
 LABEL org.opencontainers.image.source="https://github.com/deonthomasgy/docker-tsdproxy" \
       org.opencontainers.image.version="${VERSION}" \
